@@ -15,7 +15,7 @@ const Pantalla2 = ({ navigation }) => {
     };
 
     const irIndicaciones = () => {
-        navigation.navigate('Indicaciones');
+        navigation.navigate('Sp');
     };
 
     const opciones = (opcion) => {
