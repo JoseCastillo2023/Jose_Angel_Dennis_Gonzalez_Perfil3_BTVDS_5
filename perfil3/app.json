@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "clase-ejemplo-3",
-    "slug": "clase-ejemplo-3",
+    "name": "perfil3",
+    "slug": "perfil3",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/burger.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FFFAAA"
+      "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true
