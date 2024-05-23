@@ -15,7 +15,7 @@ const Pantalla2 = ({ navigation }) => {
     };
 
     const irIndicaciones = () => {
-        navigation.navigate('Sp');
+        navigation.navigate('SplashScreen');
     };
 
     const opciones = (opcion) => {
@@ -30,7 +30,7 @@ const Pantalla2 = ({ navigation }) => {
                 break;
             case 3:
                 // Código a ejecutar si opcion es igual a 2
-                navigation.navigate('Ejercicio');
+                navigation.navigate('SplashScreen');
                 break;
             // Puedes añadir más casos según sea necesario
             default:
@@ -61,9 +61,9 @@ const Pantalla2 = ({ navigation }) => {
                     onValueChange={(value) => opciones(value)}
                     placeholder={{ label: 'Selecciona una pantalla...', value: null }} // Cambia el valor del placeholder aquí
                     items={[
-                        { label: 'Regresar a Inicio', value: 1 },
-                        { label: 'Trabajo en Clase', value: 2 },
-                        { label: 'Perfil 3', value: 3 },
+                        { label: 'Ir a la Pantalla 1', value: 1 },
+                        { label: 'Ir a la Pantalla 2', value: 2 },
+                        { label: 'Ir a al Splash Screen', value: 3 },
                     ]}
                 />
             </View>
