@@ -8,7 +8,7 @@ const Pantalla1 = ({ navigation }) => {
     const informacion = data;
 
     const irPantalla2 = async () => {
-        navigation.navigate('Pantalla2');
+        navigation.navigate('Menu');
     };
 
     return (

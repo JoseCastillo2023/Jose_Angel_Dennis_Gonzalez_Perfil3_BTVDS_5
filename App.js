@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 /* Importación de las pantallas */
-import Pantalla1 from './src/screens/SplashScreen1';
+import Pantalla1 from './src/screens/SplashScreen';
 import Pantalla2 from './src/screens/Pantalla2';
 import Ejercicio from './src/screens/Menu';
 import Indicaciones from './src/screens/Pantalla1';
