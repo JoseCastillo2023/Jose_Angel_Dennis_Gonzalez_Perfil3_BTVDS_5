@@ -1,44 +1,77 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Text, Image } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Text, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import creadorData from '../data/creador';
 import Boton from '../components/Boton';
+import RNPickerSelect from 'react-native-picker-select';
 
-const Indicaciones = ({ navigation }) => {
-
-    const irPantalla1 = () => {
+const Pantalla2 = ({ navigation }) => {
+    const creador = creadorData[0];
+    const irPantalla1 =  () => {
         navigation.navigate('Pantalla1');
     };
+    const irEjercicio =  () => {
+        navigation.navigate('Ejercicio');
+    };
+
+    const irIndicaciones = () => {
+        navigation.navigate('Indicaciones');
+    };
+
+    const opciones =(opcion)=>{
+        switch (opcion) {
+            case 1:
+              // Código a ejecutar si opcion es igual a 1
+              navigation.navigate('Pantalla1');
+              break;
+            case 2:
+              // Código a ejecutar si opcion es igual a 2
+              navigation.navigate('Indicaciones');
+              break;
+              case 3:
+                // Código a ejecutar si opcion es igual a 2
+                navigation.navigate('Ejercicio');
+                break;
+            // Puedes añadir más casos según sea necesario
+            default:
+              // Código a ejecutar si ninguno de los casos anteriores coincide con el valor de opcion
+          }
+
+    }
+
+
 
     return (
         <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollView}>
-                <View style={styles.card}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.title}>Trabajo en clase:</Text>
-                        <Text style={styles.title}>Indicaciones: </Text>
-                        <Text style={styles.description}>
-                            Agregar una pantalla y replicar la siguiente pantalla, las imagenes pueden ser otras:
-                        </Text>
+            <View style={styles.card}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.title}>Creador: {creador.name}</Text>
+                    <Text style={styles.title}>Descripción del Ejemplo:</Text>
+                    <Text style={styles.description}>{creador.desc}, utilizando las siguientes
+                    dependencias:  {'\n'}
 
-                    </View>
-                    <Boton
-                        textoBoton='Regresar a Inicio'
-                        accionBoton={irPantalla1}
-                    />
+        <Text style={styles.lista}>react-native-picker-select    {'\n'} </Text>            
+        <Text style={styles.lista}>@react-navigation/native-stack      {'\n'} </Text>
+   
+        <Text style={styles.lista}>@react-navigation/native  </Text> </Text>
                 </View>
-                <Image
-                    style={styles.image}
-                    source={require('../img/ejercicio2.jpg')} />
 
-                <Image
-                    style={styles.image}
-                    source={require('../img/ejercicio1.jpg')} />
-            </ScrollView>
+
+                <RNPickerSelect
+                 onValueChange={(value) => opciones(value)}
+                 placeholder={{ label: 'Selecciona una pantalla...', value: null }} // Cambia el valor del placeholder aquí
+                 items={[
+                   { label: 'Regresar a Inicio', value: 1 },
+                   { label: 'Trabajo en Clase', value: 2 },
+                   { label: 'Perfil 3', value: 3 },
+                 ]}
+                />
+       </View>
         </View>
     );
 };
 
-export default Indicaciones;
+export default Pantalla2;
 
 const styles = StyleSheet.create({
     container: {
@@ -47,19 +80,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: StatusBar.currentHeight || 0,
-        paddingTop: 30
     },
-    scrollView: {
-        flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+    lista: {
+        fontSize: 16,
+        lineHeight: 24,
+        marginLeft: 20, // Añade un margen a la izquierda para simular la lista
+        fontWeight: 'bold', // Opcional: Puedes aplicar cualquier otro estilo que desees
+        color: 'black', // Opcional: Color del texto de la lista
     },
     card: {
         backgroundColor: '#fff',
         borderRadius: 8,
         borderWidth: 1,
         borderColor: '#ccc',
-        padding: 10,
+        padding: 20,
         marginBottom: 20,
         shadowColor: '#000',
         shadowOffset: {
@@ -69,12 +103,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        width: '95%',
+        width: '80%',
         alignItems: 'center',
     },
     image: {
-        width: 206, // Aumenta el ancho de la imagen
-        height: 459, // Aumenta la altura de la imagen
+        width: 100,
+        height: 100,
         marginBottom: 10,
     },
     textContainer: {
@@ -88,5 +122,15 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 16,
         marginBottom: 20,
+    },
+    button: {
+        backgroundColor: 'lightblue',
+        padding: 10,
+        borderRadius: 5,
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#fff',
     },
 });
