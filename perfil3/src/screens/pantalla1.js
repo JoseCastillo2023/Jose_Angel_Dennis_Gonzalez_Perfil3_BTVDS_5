@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, FlatList, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import data from '../data/data';
+import comida from '../data/comida';
 import Boton from '../components/Boton';
 
 const Pantalla1 = ({ navigation }) => {
-    const informacion = data;
+    const informacion = comida;
 
     const irInicio = async () => {
         navigation.navigate('Inicio');
@@ -16,7 +16,7 @@ const Pantalla1 = ({ navigation }) => {
             <Text style={styles.title}>Mostrando Informacion horizontal</Text>
             <View style={styles.flatListContainer}>
                 <FlatList
-                    data={informacion}
+                    comida={informacion}
                     horizontal={true}
                     renderItem={({ item }) => (
                         <View style={styles.cardContainer}>

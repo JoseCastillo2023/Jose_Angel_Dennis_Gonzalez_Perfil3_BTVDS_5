@@ -7,30 +7,30 @@ import RNPickerSelect from 'react-native-picker-select';
 
 const Menu = ({ navigation }) => {
     const creador = creadorData[0];
+    const irInicio = () => {
+        navigation.navigate('Inicio');
+    };
     const irPantalla1 = () => {
         navigation.navigate('Pantalla1');
     };
-    const irEjercicio = () => {
-        navigation.navigate('Ejercicio');
-    };
 
-    const irIndicaciones = () => {
-        navigation.navigate('Indicaciones');
+    const irPantalla2 = () => {
+        navigation.navigate('Pantalla2');
     };
 
     const opciones = (opcion) => {
         switch (opcion) {
             case 1:
                 // Código a ejecutar si opcion es igual a 1
-                navigation.navigate('Pantalla1');
+                navigation.navigate('Inicio');
                 break;
             case 2:
                 // Código a ejecutar si opcion es igual a 2
-                navigation.navigate('Indicaciones');
+                navigation.navigate('Pantalla1');
                 break;
             case 3:
                 // Código a ejecutar si opcion es igual a 2
-                navigation.navigate('Ejercicio');
+                navigation.navigate('Pantalla2');
                 break;
             // Puedes añadir más casos según sea necesario
             default:
@@ -62,8 +62,8 @@ const Menu = ({ navigation }) => {
                     placeholder={{ label: 'Selecciona una pantalla...', value: null }} // Cambia el valor del placeholder aquí
                     items={[
                         { label: 'Regresar a Inicio', value: 1 },
-                        { label: 'Trabajo en Clase', value: 2 },
-                        { label: 'Perfil 3', value: 3 },
+                        { label: 'Pantalla 1', value: 2 },
+                        { label: 'Pantalla 2', value: 3 },
                     ]}
                 />
             </View>

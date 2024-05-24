@@ -1,4 +1,6 @@
-import { StyleSheet, View } from "react-native";
+import React from 'react';
+import { View, StyleSheet, Text} from 'react-native';
+import Boton from '../components/Boton';
 
 export default function inicio() {
 
@@ -7,15 +9,17 @@ export default function inicio() {
     };
 
     return (
-        <View style ={styles.container}>
+        <View style={styles.container}>
             <Text>¡Bienvenido usuario!</Text>
+
+            <Boton
+                textoBoton='Ir al menu'
+                accionBoton={irMenu}
+            />
         </View>
     );
 
-    <Boton
-        textoBoton='Ir al menu'
-        accionBoton={irMenu}
-    />
+
 }
 
 const styles = StyleSheet.create({
